@@ -8,9 +8,13 @@ There are hardware prerequisites in addition to a computer. A microphone is need
 Also, this STS translator is tested on linux with the "Raspberry Pi 2" but should work with other systems. Instructions for other systems are provided as well but might need some modifications.
 
 Dependencies:
+
 [pocketsphinx](https://github.com/cmusphinx/pocketsphinx) for speech recognition
+
 [sphinxbase](https://github.com/cmusphinx/sphinxbase) for speech recognition
+
 [flite](https://github.com/festvox/flite) for speech synthesizing
+
 [ibm language-translator](https://www.ibm.com/watson/services/language-translator/) for translation
 
 # Linux/Unix installation
