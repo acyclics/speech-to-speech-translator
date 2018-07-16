@@ -18,7 +18,38 @@ Dependencies:
 [ibm language-translator](https://www.ibm.com/watson/services/language-translator/) for translation
 
 # Linux/Unix installation
+Begin with installing sphinxbase:
 ```python
 git clone http://github.com/cmusphinx/sphinxbase
-cd 
+cd sphinxbase
+./autogen.sh
+./configure
+make
+sudo make install
+```
+Then, return to original directory
+```
+cd -
+```
+and install pocketsphinx:
+```python
+git clone http://github.com/cmusphinx/pocketsphinx
+cd pocketsphinx
+./autogen.sh
+./configure
+make
+sudo make install
+```
+To install flite, first return to original directory
+```
+cd -
+```
+then install flite from source:
+```python
+git clone http://github.com/festvox/flite
+cd flite
+./configure
+make
+make get_voices
+sudo make install
 ```
