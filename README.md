@@ -69,4 +69,6 @@ For lines 177, 183, and 62, (text file) must be replaced with a path for the cre
 # Changing language
 To setup the language model used by pocketsphinx, first download the desired language model at https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/. In this example, we will use the Spanish language model. You can change this by swapping the language model pocketsphinx uses and changing IBM's settings. 
 
-Open the folder containing the language model and note the following files: fioenamemeixt
+Open the folder containing the language model and note the following files: filename.dict, filename.lm.bin or filename.lm, and a folder containing the files feat.param, mdef... 
+
+On line 62 of translate.cpp, replace (lm path) with the path to filename.lm.bin (e.g.). Replace (hmm path) with the folder containing the various files (e.g.). Replace (dict path) with the path to filename.dict (e.g.).
