@@ -185,7 +185,7 @@ int main()
   
 	while(1)
 	{
-		myfile.clear();                                                         // ignore lines that are already read
+		myfile.clear();                                                   // ignore lines that are already read
 		while(getline(myfile, templine))
 		{
 			char* sendspanish = nullptr;
@@ -193,21 +193,21 @@ int main()
 			char *flitecommand = nullptr;
       
 			std::string spanishstr[]{ templine, spanishend };
-			getPathsEX(sendspanish, spanishstart, 3, spanishstr, 2);              // stores syntax for word/words into "sendspanish"
+			getPathsEX(sendspanish, spanishstart, 3, spanishstr, 2);  // stores syntax for word/words into "sendspanish"
 			
                         std::string commandstr[]{ sendspanish, endtext };
-			getPathsEX(sendcommand, sendcurl, 139, commandstr, 2);                // stores command for requesting translation from IBM into "sendcommand"
+			getPathsEX(sendcommand, sendcurl, 139, commandstr, 2);    // stores command for requesting translation from IBM into "sendcommand"
 			
                         fpipesec = (FILE*)popen(sendcommand, "r");
 			char* a = new char[200];
 			char* b = nullptr;
 			int countingwords(0);
-			fread(a, 200, 1, fpipesec);                                           // stores terminal output into "a"
+			fread(a, 200, 1, fpipesec);                               // stores terminal output into "a"
       
 			for (int count(46); count < 200; ++count)
 			{
-				++countingwords;                                                    // countingwords store the number of characters the word/words being translated contain
-				if (alphabet(a[count+1]))                                           // if the next character is an alphabet or "space", keep looping. if it isn't an alphabet or "space", then we have finished calculating "countingwords", so end the loop
+				++countingwords;                                  // countingwords store the number of characters the word/words being translated contain
+				if (alphabet(a[count+1]))                         // if the next character is an alphabet or "space", keep looping. if it isn't an alphabet or "space", then we have finished calculating "countingwords", so end the loop
 				{
 				}
 				else
@@ -216,32 +216,32 @@ int main()
 				}
 			}
       
-			b = new char[countingwords + 15];                                     // add 15 so we would have additional space to signify end of speech through the char array "endofspeech"
+			b = new char[countingwords + 15];                         // add 15 so we would have additional space to signify end of speech through the char array "endofspeech"
       
 			for (int count(0); count < countingwords; ++count)
 			{
-				b[count] = a[46 + count];                                           // store the translated word/words into "b"
+				b[count] = a[46 + count];                         // store the translated word/words into "b"
 			}
       
                         for (int count(0); count < 14; ++count)
                         {
-                                b[countingwords + count] = endofspeech[count];                      // append "end of speech" to "b"
+                                b[countingwords + count] = endofspeech[count];    // append "end of speech" to "b"
                         }
       
 			b[countingwords + 14] = '\0';
                         
 			std::string flitestr[]{ b, flitetoend };
-			getPathsEX(flitecommand, flitetoappend, 7, flitestr, 2);              // stores command for synthesizing speech to "flitecommand"
+			getPathsEX(flitecommand, flitetoappend, 7, flitestr, 2);  // stores command for synthesizing speech to "flitecommand"
 
 			remove("/home/pi/Desktop/hear.wav");
-			system(flitecommand);                                                 // creates wav file that contains the speech for the translated word/words
+			system(flitecommand);                                     // creates wav file that contains the speech for the translated word/words
       
-			while (!(exists("/home/pi/Desktop/hear.wav")))	                      // if the wav file is not created yet, sleep until it is created
+			while (!(exists("/home/pi/Desktop/hear.wav")))	          // if the wav file is not created yet, sleep until it is created
                         {
                                 sleep(1);
                         }
                         
-			system("omxplayer -o alsa /home/pi/Desktop/hear.wav");		            // sound player must be changed depending on system (omxplayer for linux)	
+			system("omxplayer -o alsa /home/pi/Desktop/hear.wav"); 	// sound player must be changed depending on system (omxplayer for linux)	
 
 			pclose(fpipesec);
 			delete[] a;
@@ -250,7 +250,7 @@ int main()
 			delete[] sendspanish;
 			delete[] flitecommand;
 		}
-		sleep(1);                                                               // reduces burden on CPU due to while(1) statements
+		sleep(1);                                                         // reduces burden on CPU due to while(1) statements
 	}
 	pclose(fpipe);
 	recording.join();
