@@ -5,9 +5,10 @@ Note that this is a compilation of softwares and APIs. By no means is this a sta
 
 There are hardware prerequisites in addition to a computer. A microphone is needed for audio input and some form of audio output is needed.
 
-Also, this STS translator is tested on linux with the "Raspberry Pi 2" but should work with other systems. Instructions for other systems are provided as well but might need some modifications.
+Also, this STS translator is tested on linux with the "Raspberry Pi 2" but should work with other systems. Although instructions for other systems are not provided, the translator is coded so as to be compatible on most systems. So, setup on other systems would be similar but may need some slight modifications.
 
-Dependencies:
+
+**Dependencies:**
 
 [pocketsphinx](https://github.com/cmusphinx/pocketsphinx) for speech recognition
 
@@ -15,11 +16,12 @@ Dependencies:
 
 [flite](https://github.com/festvox/flite) for speech synthesizing
 
-[ibm language-translator](https://www.ibm.com/watson/services/language-translator/) for translation
+[ibm-language-translator](https://www.ibm.com/watson/services/language-translator/) for translation
 
 # Prerequisites 
 
-1. Curl must be installed
+1. curl must be installed
+2. c++ complier
 
 # Linux/Unix installation
 Begin with installing sphinxbase:
@@ -115,4 +117,7 @@ g++ -Wall -I /usr/include/c++/6 -I /usr/local/include -L /usr/local/lib -lpthrea
 ```
 
 After translate.cpp is compiled, you can run the translator by navigating to the directory containing the "translate" file and entering:
-`./translate`
+```
+./translate
+```
+This will start a loop that keeps detecting speech input and output the translated speech through voice.
