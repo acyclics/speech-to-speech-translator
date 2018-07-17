@@ -85,6 +85,25 @@ To direct Flite to use a specify voice package, choose a file that ends with "lv
 (e.g. ./configure --with-langvox=transtac)
 ```
 
+# Audio input
+For most systems, audio input should be automatic. However, small computers like Raspberry Pi might encounter problems when used with audio input devices like microphones. It is recommended for you to get audio input sorted on your respective systems before continuing.
+
+When testing the translator on a Raspberry Pi 2, I had to use a soundcard for my microphone. To configure the microphone for a Raspberry Pi 2, open the file alsa-base.conf by entering into the terminal the command:
+```
+sudo nano /etc/modprobe.d/alsa-base.conf
+```
+and add to it the line "options snd-usb-audio index=1".
+
+Then test the microphone by entering into terminal the command
+```
+arecord -D plughw:1,0 test.wav
+```
+Once you have your headphone/earphone set up, check the wav sound file with the command
+```
+aplay test.wav
+```
+If the wav sound file lacks audio, you might need to configure your Raspberry Pi for your soundcard or some other problems. Either way, there are tons of solutions on the internet.
+
 # Audio output
 Depending on your system, line 244 of translate.cpp would be different. The purpose here is to play the wav file created by Flite. On the Raspberry Pi, omxplayer is used. If you are using other systems, other audio players can be used. 
 
@@ -99,10 +118,24 @@ If you are using Bluetooth earphone for audio output on Linux computers, you mig
 
 If you can hear the audio output through your Bluetooth earphone, then you should comment out the two lines. If however, there is no audio output, then you must keep the two lines and replace (Bluetooth address) with the Bluetooth address of your earphone (e.g. 74_26_05_AE_65_DE).
 
-Additionally, if you are setting this up on a Raspberry Pi, you might need to run a script avaliable [here](https://github.com/BaReinhard/a2dp_bluetooth). It will configure your Raspberry Pi to be used with Bluetooth headphones/earphones. 
+Additionally, if you are setting this up on a Raspberry Pi, you might need to run a script avaliable [here](https://github.com/BaReinhard/a2dp_bluetooth). It will configure your Raspberry Pi to be used with Bluetooth headphones/earphones. You would also have to ensure the Raspberry Pi uses the alsa mixer. This can be achieved by opening the file alsa-base.conf with the command
+```
+sudo nano /etc/modprobe.d/alsa-base.conf
+```
+and adding to it the line "options snd_bcm2835 index=1".
+
+To test the bluetooth headphone/earphone on the Raspberry Pi 2, follow the instructions at https://www.raspberrypi.org/documentation/usage/audio/ but instead of entering the command `omxplayer example.mp3`, enter `omxplayer -o alsa example.mp3`. If there is no audio output, there are tons of solutions on the internet.
 
 # No bluetooth
-If you are using wired connection, simply comment out line 180 and 181.
+If you are using wired connection, simply comment out line 180 and 181. Additional configuration might be needed depending on your system.
+
+On the Raspberry Pi 2, I had to use a soundcard for my earphones which I had to configure. To configure it on the Raspberry Pi 2, open alsa-base.conf
+```
+sudo nano /etc/modprobe.d/alsa-base.conf
+```
+and add to it the line "options snd_bcm2835 index=1".
+
+To test the headphone/earphone on the Raspberry Pi 2, follow the instructions at https://www.raspberrypi.org/documentation/usage/audio/. If there is no audio output, there are tons of solutions on the internet.
 
 # Compiling on Linux/Unix
 When all adjustments and setups are complete, you can compile translate.cpp and begin using the speech-to-speech-translator. To compile, you must link the "include" and "lib" directory the "make install" commands made in. By default, linux has an "include" folder at /usr/local/include and a "lib" folder at /usr/local/lib. Moreover, depending on the c++ compiler, the include folder for c applications might be available at /usr/include/c++. The command to compile is as follow:
