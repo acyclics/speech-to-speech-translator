@@ -68,7 +68,7 @@ For lines 75, 236, 239, and 244, (wav file) must be replaced with a path for the
 For lines 62, 177, and 183, (text file) must be replaced with a path for the creation, deletion, and input of a text file (e.g. /home/pi/Desktop/foo.txt).
 
 # Changing language
-To setup the language model used by pocketsphinx, first download the desired language model at <https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/>. In this example, we will use the Spanish language model but steps should be similar for other language models.
+To setup the language model used by pocketsphinx, first download the desired language model at https://sourceforge.net/projects/cmusphinx/files acoustic and language Models section. In this example, we will use the Spanish language model but steps should be similar for other language models.
 
 Open the folder containing the language model and note the following files: filename.dict (e.g. es.dict), filename.lm.bin or filename.lm (e.g. es-20k.lm.bin), and a folder containing the files feat.params, mdef, means, mixture_weights... (e.g. /home/pi/Desktop/spanish/cmusphinx-es-5.2/model_parameters/voxforge_es_sphinx.cd_ptm_4000)
 
