@@ -51,13 +51,13 @@ sudo make install
 ```
 To use IBM's translator, you must first create an account [here](https://www.ibm.com/watson/services/language-translator/). IBM allows an account to have a certain number of characters translated free for each month and does not require a credit card during sign up. We need the URL and API key provided after sign up. 
 
-URL:
+*URL:*
 
-On line 68 of translate.cpp, replace (your URL) with the URL IBM provided (e.g.). 
+On line 68 of translate.cpp, replace (your URL) with the URL IBM provided (e.g. https://gateway.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01). 
 
 API:
 
-On line 65 of translate.cpp, replace (your key) with the API key IBM provided (e.g.).
+On line 65 of translate.cpp, replace (your key) with the API key IBM provided (e.g. Uuqc9hPH99U8aIe_SD7iDqEeudzgYu7Q69_RLYthEQBq).
 
 Other ajustments:
 
