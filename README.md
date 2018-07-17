@@ -69,4 +69,4 @@ For lines 177, 183, and 62, (text file) must be replaced with a path for the cre
 # Changing language
 By default, translate.cpp uses a Spanish language model and translates from Spanish to English. This can be changed by swapping the language model pocketsphinx uses and changing IBM's settings. 
 
-To change language model, download the desired language model [here](https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/). 
+To change language model, download the desired language model [here]("https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/"). 
