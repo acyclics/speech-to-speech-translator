@@ -102,7 +102,7 @@ Once you have your headphone/earphone set up, check the wav sound file with the 
 ```
 aplay test.wav
 ```
-If the wav sound file lacks audio, you might need to configure your Raspberry Pi for your soundcard or some other problems. Either way, there are tons of solutions on the internet.
+If the wav sound file lacks audio, you might need to configure your Raspberry Pi for your soundcard or it could be the result of some other problems. Either way, there are tons of solutions on the internet.
 
 # Audio output
 Depending on your system, line 244 of translate.cpp would be different. The purpose here is to play the wav file created by Flite. On the Raspberry Pi, omxplayer is used. If you are using other systems, other audio players can be used. 
