@@ -67,6 +67,6 @@ For lines 75, 239, and 244, (wav file) must be replaced with a path for the crea
 For lines 177, 183, and 62, (text file) must be replaced with a path for the creation, deletion, and input of a text file (e.g.).
 
 # Changing language
-To setup the language model used by pocketsphinx, first download the desired language model at https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/. In this example, we will use the Spanish language model. translate.cpp uses a Spanish language model and translates from Spanish to English. This can be changed by swapping the language model pocketsphinx uses and changing IBM's settings. 
+To setup the language model used by pocketsphinx, first download the desired language model at https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/. In this example, we will use the Spanish language model. You can change this by swapping the language model pocketsphinx uses and changing IBM's settings. 
 
-To change language model, and change the paths to 
+Open the folder containing the language model and note the following files: fioenamemeixt
