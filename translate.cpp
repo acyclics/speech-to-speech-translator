@@ -165,9 +165,9 @@ bool alphabet(char value)
 		case 'z':
 			return true;
 			break;
-    case ' ':
-      return true;
-      break;
+                case ' ':
+                       return true;
+                        break;
 	}
 	return false;
 }
@@ -177,10 +177,10 @@ int main()
 	remove("/home/pi/Desktop/foo.txt");
 	std::thread recording(startbranch);                                       // starts pocketsphinx in a thread
 	sleep(5);                                                                 // sleep for 5 seconds on Linux/Unix systems for "foo.txt" to be created
-  system("pacmd set-card-profile bluez_card.70_26_05_AE_65_DD a2dp_sink");  // bluetooth address must be adjusted
-  system("pacmd set-default-sink bluez_sink.70_26_05_AE_65_DD.a2dp_sink");  // bluetooth address must be adjusted
+        system("pacmd set-card-profile bluez_card.70_26_05_AE_65_DD a2dp_sink");  // bluetooth address must be adjusted
+        system("pacmd set-default-sink bluez_sink.70_26_05_AE_65_DD.a2dp_sink");  // bluetooth address must be adjusted
 	
-  std::ifstream myfile("/home/pi/Desktop/foo.txt");                         // reads file pocketsphinx outputs to
+        std::ifstream myfile("/home/pi/Desktop/foo.txt");                         // reads file pocketsphinx outputs to
 	std::string templine;
   
 	while(1)
@@ -195,10 +195,10 @@ int main()
 			std::string spanishstr[]{ templine, spanishend };
 			getPathsEX(sendspanish, spanishstart, 3, spanishstr, 2);              // stores syntax for word/words into "sendspanish"
 			
-      std::string commandstr[]{ sendspanish, endtext };
+                        std::string commandstr[]{ sendspanish, endtext };
 			getPathsEX(sendcommand, sendcurl, 139, commandstr, 2);                // stores command for requesting translation from IBM into "sendcommand"
 			
-      fpipesec = (FILE*)popen(sendcommand, "r");
+                        fpipesec = (FILE*)popen(sendcommand, "r");
 			char* a = new char[200];
 			char* b = nullptr;
 			int countingwords(0);
@@ -223,7 +223,7 @@ int main()
 				b[count] = a[46 + count];                                           // store the translated word/words into "b"
 			}
       
-      for (int count(0); count < 14; ++count)
+                        for (int count(0); count < 14; ++count)
       {
         b[countingwords + count] = endofspeech[count];                      // append "end of speech" to "b"
       }
