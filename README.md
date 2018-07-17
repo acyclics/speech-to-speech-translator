@@ -48,10 +48,15 @@ sudo make install
 To use IBM's translator, you must first create an account [here](https://www.ibm.com/watson/services/language-translator/). IBM allows an account to have a certain number of characters translated free for each month and does not require a credit card during sign up. We need the URL and API key provided after sign up. 
 
 URL:
-On line 68 of translate.cpp, replace <your url> with the URL IBM provided (e.g.). 
+
+On line 68 of translate.cpp, replace (your URL) with the URL IBM provided (e.g.). 
 
 API:
-On line 65 of translate.cpp, replace <your key> with the API key IBM provided (e.g.).
+
+On line 65 of translate.cpp, replace (your key) with the API key IBM provided (e.g.).
 
 Other ajustments:
-For lines 75, 239, and 244, <wav file> must be replaced with a path for the creation, deletion, and input of a wav file (e.g).
+
+For lines 75, 239, and 244, (wav file) must be replaced with a path for the creation, deletion, and input of a wav file (e.g.).
+
+For lines 177, 183, and 62, (text file) must be replaced with a path for the creation, deletion, and input of a text file (e.g.).
