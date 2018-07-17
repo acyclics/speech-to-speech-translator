@@ -73,4 +73,4 @@ Open the folder containing the language model and note the following files: file
 
 On line 62 of translate.cpp, replace (lm path) with the path to filename.lm.bin (e.g.). Replace (hmm path) with the folder containing the various files (e.g.). Replace (dict path) with the path to filename.dict (e.g.).
 
-On line 68, "es-en" 
+On line 68, "es-en" directs IBM translator to translate from Spanish to English. You must set this yourself for your desired language (e.g. en-es to translate from English to Spanish). Note that the language to be translated must match the language model you chose for pocketsphinx. 
