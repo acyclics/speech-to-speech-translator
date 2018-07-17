@@ -105,7 +105,7 @@ Additionally, if you are setting this up on a Raspberry Pi, you might need to ru
 If you are using wired connection, simply comment out line 180 and 181.
 
 # Compiling on Linux/Unix
-When all adjustments and setups are complete, you can compile translate.cpp and begin using the speech-to-speech-translator. To compile, you must link the "include" and "lib" directory the "make install" commands made in. The command to compile is as follow:
+When all adjustments and setups are complete, you can compile translate.cpp and begin using the speech-to-speech-translator. To compile, you must link the "include" and "lib" directory the "make install" commands made in. By default, linux has an "include" folder at /usr/local/include and a "lib" folder at /usr/local/lib. Moreover, depending on the c++ compiler, the include folder for c applications might be available at /usr/include/c++. The command to compile is as follow:
 ```
 g++ -Wall -I (path to c's include folder) -I (path to user's include folder) -L (path to user's lib folder) -lpthread translate.cpp -o translate
 ```
