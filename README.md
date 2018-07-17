@@ -79,12 +79,21 @@ Because Flite is used for speech synthesizing, the language in which speech outp
 
 To direct Flite to use a specify voice package, 
 
+# Audio output
+Depending on your system, line 244 of translate.cpp would be different. The purpose here is to play the wav file created by Flite. On the Raspberry Pi, omxplayer is used. If you are using other systems, other audio players can be used. 
+
+Regarding the parameter "-o alsa", it should be used if the headphone/earphone you are using outputs with alsa mixer. If not, remove the parameter from the command on line 244. Raspberry Pi can be configured to use alsa when paired with Bluetooth headphone/earphone (see below). Other systems might be different, so it is up to you to figure out what audio player and parameters you should use. 
+
 # Bluetooth
 translate.cpp assumes that you use Bluetooth headphone/earphone to receive audio output. If that is not the case, then comment out lines 180 and 181. Then, see below's section "No Bluetooth". 
 
-If you are using Bluetooth earphone for audio output on Linux computers, you might also want to comment out the two lines. To test whether you need to, install [Pulse audio](https://www.freedesktop.org/wiki/Software/PulseAudio/?) then enter the command `flite - t "testing testing one two three" `. If you can hear the audio output through your Bluetooth earphone, then you should comment out the two lines. If however there is no audio output, then you must keep the two lines and replace (Bluetooth address) with the Bluetooth address of your earphone (e.g.).
+If you are using Bluetooth earphone for audio output on Linux computers, you might also want to comment out the two lines. To test whether you need to, install [Pulse audio](https://www.freedesktop.org/wiki/Software/PulseAudio/?) then enter the command 
+
+`flite - t "testing testing one two three" `. 
+
+If you can hear the audio output through your Bluetooth earphone, then you should comment out the two lines. If however there is no audio output, then you must keep the two lines and replace (Bluetooth address) with the Bluetooth address of your earphone (e.g.).
 
 If you are setting this up on a Raspberry Pi, you might need to run a script avaliable [here](http://replaceme.com). It will configure your Raspberry Pi to be used with Bluetooth headphones/earphones. 
 
 # No bluetooth
-If you are using wired connection, in addition to commenting out lines 180 and 181 of translate.cpp,you must change line
+If you are using wired connection, simply comment out line 180 and 181.
