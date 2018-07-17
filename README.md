@@ -20,7 +20,6 @@ Dependencies:
 # Prerequisites 
 
 1. Curl must be installed
-2. Cmake must be inatalled
 
 # Linux/Unix installation
 Begin with installing sphinxbase:
