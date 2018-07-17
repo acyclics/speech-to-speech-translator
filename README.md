@@ -53,4 +53,5 @@ On line 68 of translate.cpp, replace <your url> with the URL IBM provided (e.g.)
 API:
 On line 65 of translate.cpp, replace <your key> with the API key IBM provided (e.g.).
 
-Final adjustments must be made to
+Other ajustments:
+For lines 75, 239, and 244, <wav file> must be replaced with a path for the creation, deletion, and input of a wav file (e.g).
