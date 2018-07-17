@@ -61,7 +61,7 @@ On line 65 of translate.cpp, replace (your key) with the API key IBM provided (e
 
 On line 68 of translate.cpp, replace (your URL) with the URL IBM provided (e.g. https://gateway.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01). 
 
-**Other ajustments:**
+**Other adjustments:**
 
 For lines 75, 236, 239, and 244, (wav file) must be replaced with a path for the creation, deletion, and input of a wav file (e.g. /home/pi/Desktop/hear.wav).
 
