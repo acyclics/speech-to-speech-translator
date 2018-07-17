@@ -45,8 +45,12 @@ make
 make get_voices
 sudo make install
 ```
-To use IBM's translator, you must first create an account [here] (https://www.ibm.com/watson/services/language-translator/). IBM allows an account to have a certain number of characters translated free for each month and does not require a credit card during sign up. We need the url and API key provided after sign up. 
+To use IBM's translator, you must first create an account [here](https://www.ibm.com/watson/services/language-translator/). IBM allows an account to have a certain number of characters translated free for each month and does not require a credit card during sign up. We need the URL and API key provided after sign up. 
 
+URL:
+On line 68 of translate.cpp, replace <your url> with the URL IBM provided (e.g.). 
 
+API:
+On line 65 of translate.cpp, replace <your key> with the API key IBM provided (e.g.).
 
-Assuming you are getting audio input with a microphone and audio output from a Bluetooth earphone, 
+Final adjustments must be made to
