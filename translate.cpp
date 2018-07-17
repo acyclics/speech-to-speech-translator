@@ -224,9 +224,9 @@ int main()
 			}
       
                         for (int count(0); count < 14; ++count)
-      {
-        b[countingwords + count] = endofspeech[count];                      // append "end of speech" to "b"
-      }
+                        {
+                                b[countingwords + count] = endofspeech[count];                      // append "end of speech" to "b"
+                        }
       
 			b[countingwords + 14] = '\0';
                         
@@ -237,9 +237,9 @@ int main()
 			system(flitecommand);                                                 // creates wav file that contains the speech for the translated word/words
       
 			while (!(exists("/home/pi/Desktop/hear.wav")))	                      // if the wav file is not created yet, sleep until it is created
-      {
-        sleep(1);
-      }
+                        {
+                                sleep(1);
+                        }
                         
 			system("omxplayer -o alsa /home/pi/Desktop/hear.wav");		            // sound player must be changed depending on system (omxplayer for linux)	
 
