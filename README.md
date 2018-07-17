@@ -49,35 +49,39 @@ make
 make get_voices
 sudo make install
 ```
-To use IBM's translator, you must first create an account [here](https://www.ibm.com/watson/services/language-translator/). IBM allows an account to have a certain number of characters translated free for each month and does not require a credit card during sign up. We need the URL and API key provided after sign up. 
+To use IBM's translator, you must first create an account [here](https://www.ibm.com/watson/services/language-translator/). IBM allows an account to have a certain number of characters translated free for each month and does not require a credit card during sign up. We need the API and URL key provided after sign up. 
 
-*URL:*
-
-On line 68 of translate.cpp, replace (your URL) with the URL IBM provided (e.g. https://gateway.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01). 
-
-API:
+**API:**
 
 On line 65 of translate.cpp, replace (your key) with the API key IBM provided (e.g. Uuqc9hPH99U8aIe_SD7iDqEeudzgYu7Q69_RLYthEQBq).
 
-Other ajustments:
+**URL:**
 
-For lines 75, 239, and 244, (wav file) must be replaced with a path for the creation, deletion, and input of a wav file (e.g.).
+On line 68 of translate.cpp, replace (your URL) with the URL IBM provided (e.g. https://gateway.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01). 
 
-For lines 177, 183, and 62, (text file) must be replaced with a path for the creation, deletion, and input of a text file (e.g.).
+**Other ajustments:**
+
+For lines 75, 236, 239, and 244, (wav file) must be replaced with a path for the creation, deletion, and input of a wav file (e.g. /home/pi/Desktop/hear.wav).
+
+For lines 62, 177, and 183, (text file) must be replaced with a path for the creation, deletion, and input of a text file (e.g. /home/pi/Desktop/foo.txt).
 
 # Changing language
-To setup the language model used by pocketsphinx, first download the desired language model at https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/. In this example, we will use the Spanish language model. You can change this by swapping the language model pocketsphinx uses and changing IBM's settings. 
+To setup the language model used by pocketsphinx, first download the desired language model at <https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/>. In this example, we will use the Spanish language model but steps should be similar for other language models.
 
-Open the folder containing the language model and note the following files: filename.dict, filename.lm.bin or filename.lm, and a folder containing the files feat.param, mdef... 
+Open the folder containing the language model and note the following files: filename.dict (e.g. es.dict), filename.lm.bin or filename.lm (e.g. es-20k.lm.bin), and a folder containing the files feat.params, mdef, means, mixture_weights... (e.g. /home/pi/Desktop/spanish/cmusphinx-es-5.2/model_parameters/voxforge_es_sphinx.cd_ptm_4000)
 
-On line 62 of translate.cpp, replace (lm path) with the path to filename.lm.bin (e.g.). Replace (hmm path) with the folder containing the various files (e.g.). Replace (dict path) with the path to filename.dict (e.g.).
+On line 62 of translate.cpp, replace (lm path) with the path to filename.lm.bin (e.g. /home/pi/Desktop/spanish/es-20k.lm.bin). Replace (hmm path) with the folder containing the various files (e.g. /home/pi/Desktop/spanish/cmusphinx-es-5.2/model_parameters/voxforge_es_sphinx.cd_ptm_4000). Replace (dict path) with the path to filename.dict (e.g. /home/pi/Desktop/spanish/es.dict).
 
 On line 68, "es-en" directs IBM translator to translate from Spanish to English. You must set this yourself for your desired language (e.g. en-es to translate from English to Spanish). Note that the language to be translated must match the language model you chose for pocketsphinx. 
 
 # Speech output
-Because Flite is used for speech synthesizing, the language in which speech outputs is limited by the selections Flute provide. Right now, the options are... Note that whatever the option, it must match the language chosen to be translated at IBM settings.
+Because Flite is used for speech synthesizing, the language in which speech outputs is limited by the selections Flute provide. Right now, the options are available [here](https://github.com/festvox/flite/tree/master/config). Flite speaks in English by default. Note that whatever the option, it must match the language chosen to be translated to at IBM settings.
 
-To direct Flite to use a specify voice package, 
+To direct Flite to use a specify voice package, choose a file that ends with "lv" in the folder at /flite/config and configure flite with the command
+```
+./configure --with-langvox="lv filename"
+(e.g. ./configure --with-langvox=transtac)
+```
 
 # Audio output
 Depending on your system, line 244 of translate.cpp would be different. The purpose here is to play the wav file created by Flite. On the Raspberry Pi, omxplayer is used. If you are using other systems, other audio players can be used. 
@@ -91,19 +95,24 @@ If you are using Bluetooth earphone for audio output on Linux computers, you mig
 
 `flite - t "testing testing one two three" `. 
 
-If you can hear the audio output through your Bluetooth earphone, then you should comment out the two lines. If however there is no audio output, then you must keep the two lines and replace (Bluetooth address) with the Bluetooth address of your earphone (e.g.).
+If you can hear the audio output through your Bluetooth earphone, then you should comment out the two lines. If however, there is no audio output, then you must keep the two lines and replace (Bluetooth address) with the Bluetooth address of your earphone (e.g. 74_26_05_AE_65_DE).
 
-If you are setting this up on a Raspberry Pi, you might need to run a script avaliable [here](http://replaceme.com). It will configure your Raspberry Pi to be used with Bluetooth headphones/earphones. 
+Additionally, if you are setting this up on a Raspberry Pi, you might need to run a script avaliable [here](https://github.com/BaReinhard/a2dp_bluetooth). It will configure your Raspberry Pi to be used with Bluetooth headphones/earphones. 
 
 # No bluetooth
 If you are using wired connection, simply comment out line 180 and 181.
 
 # Compiling on Linux/Unix
-When all adjustments and setups are complete, you can compile translate.cpp and begin using the speech-to-speech-translator. To compile, you must link the "include" and "lib" directory the "make install" commands made in. 
-
-For the Raspberry Pi, you can run the below command in terminal:
+When all adjustments and setups are complete, you can compile translate.cpp and begin using the speech-to-speech-translator. To compile, you must link the "include" and "lib" directory the "make install" commands made in. The command to compile is as follow:
 ```
-Command here
+g++ -Wall -I (path to c's include folder) -I (path to user's include folder) -L (path to user's lib folder) -lpthread translate.cpp -o translate
+```
+where "translate.cpp" is the path to the cpp file. This command will generate a file named "translate".
+
+For example on the Raspberry Pi, you can run the below command in terminal:
+```
+g++ -Wall -I /usr/include/c++/6 -I /usr/local/include -L /usr/local/lib -lpthread translate.cpp -o translate
 ```
 
-On Linux/Unix:
+After translate.cpp is compiled, you can run the translator by navigating to the directory containing the "translate" file and entering:
+`./translate`
