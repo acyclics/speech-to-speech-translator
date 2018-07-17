@@ -82,6 +82,9 @@ To direct Flite to use a specify voice package,
 # Bluetooth
 translate.cpp assumes that you use Bluetooth headphone/earphone to receive audio output. If that is not the case, then comment out lines 180 and 181. Then, see below's section "No Bluetooth". 
 
-If you are using Bluetooth earphone for audio output on Linux computers, you might also want to comment out the two lines. To test whether you need to, install Pulseaudio then enter the command `flite - t "testing testing one two three" `. If you can hear the audio output through your Bluetooth earphone, then you should comment out the two lines. If however there is no audio output, then you must keep the two lines and replace (Bluetooth address) with the Bluetooth address of your earphone (e.g.).
+If you are using Bluetooth earphone for audio output on Linux computers, you might also want to comment out the two lines. To test whether you need to, install [Pulse audio](https://www.freedesktop.org/wiki/Software/PulseAudio/?) then enter the command `flite - t "testing testing one two three" `. If you can hear the audio output through your Bluetooth earphone, then you should comment out the two lines. If however there is no audio output, then you must keep the two lines and replace (Bluetooth address) with the Bluetooth address of your earphone (e.g.).
 
 If you are setting this up on a Raspberry Pi, you might need to run a script avaliable [here](http://replaceme.com). It will configure your Raspberry Pi to be used with Bluetooth headphones/earphones. 
+
+# No bluetooth
+If you are using wired connection, in addition to commenting out lines 180 and 181 of translate.cpp,you must change line
