@@ -17,6 +17,11 @@ Dependencies:
 
 [ibm language-translator](https://www.ibm.com/watson/services/language-translator/) for translation
 
+# Prerequisites 
+
+1. Curl must be installed
+2. Cmake must be inatalled
+
 # Linux/Unix installation
 Begin with installing sphinxbase:
 ```python
@@ -60,3 +65,8 @@ Other ajustments:
 For lines 75, 239, and 244, (wav file) must be replaced with a path for the creation, deletion, and input of a wav file (e.g.).
 
 For lines 177, 183, and 62, (text file) must be replaced with a path for the creation, deletion, and input of a text file (e.g.).
+
+# Changing language
+By default, translate.cpp uses a Spanish language model and translates from Spanish to English. This can be changed by swapping the language model pocketsphinx uses and changing IBM's settings. 
+
+To change language model, download the desired language model [here
