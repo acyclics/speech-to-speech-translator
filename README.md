@@ -97,3 +97,13 @@ If you are setting this up on a Raspberry Pi, you might need to run a script ava
 
 # No bluetooth
 If you are using wired connection, simply comment out line 180 and 181.
+
+# Compiling on Linux/Unix
+When all adjustments and setups are complete, you can compile translate.cpp and begin using the speech-to-speech-translator. To compile, you must link the "include" and "lib" directory the "make install" commands made in. 
+
+For the Raspberry Pi, you can run the below command in terminal:
+```
+Command here
+```
+
+On Linux/Unix:
