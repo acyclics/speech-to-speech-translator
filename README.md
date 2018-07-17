@@ -72,3 +72,5 @@ To setup the language model used by pocketsphinx, first download the desired lan
 Open the folder containing the language model and note the following files: filename.dict, filename.lm.bin or filename.lm, and a folder containing the files feat.param, mdef... 
 
 On line 62 of translate.cpp, replace (lm path) with the path to filename.lm.bin (e.g.). Replace (hmm path) with the folder containing the various files (e.g.). Replace (dict path) with the path to filename.dict (e.g.).
+
+On line 68, "es-en" 
