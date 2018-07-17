@@ -27,11 +27,7 @@ cd sphinxbase
 make
 sudo make install
 ```
-Then, return to original directory
-```
-cd -
-```
-and install pocketsphinx:
+Then, install pocketsphinx:
 ```python
 git clone http://github.com/cmusphinx/pocketsphinx
 cd pocketsphinx
@@ -40,11 +36,7 @@ cd pocketsphinx
 make
 sudo make install
 ```
-To install flite, first return to original directory
-```
-cd -
-```
-then install flite from source:
+To install flite:
 ```python
 git clone http://github.com/festvox/flite
 cd flite
@@ -53,3 +45,8 @@ make
 make get_voices
 sudo make install
 ```
+To use IBM's translator, you must first create an account [here] (https://www.ibm.com/watson/services/language-translator/). IBM allows an account to have a certain number of characters translated free for each month and does not require a credit card during sign up. We need the url and API key provided after sign up. 
+
+
+
+Assuming you are getting audio input with a microphone and audio output from a Bluetooth earphone, 
