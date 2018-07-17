@@ -73,3 +73,11 @@ Open the folder containing the language model and note the following files: file
 On line 62 of translate.cpp, replace (lm path) with the path to filename.lm.bin (e.g.). Replace (hmm path) with the folder containing the various files (e.g.). Replace (dict path) with the path to filename.dict (e.g.).
 
 On line 68, "es-en" directs IBM translator to translate from Spanish to English. You must set this yourself for your desired language (e.g. en-es to translate from English to Spanish). Note that the language to be translated must match the language model you chose for pocketsphinx. 
+
+# Speech output
+Because Flite is used for speech synthesizing, the language in which speech outputs is limited by the selections Flute provide. Right now, the options are... Note that whatever the option, it must match the language chosen to be translated at IBM settings.
+
+To direct Flite to use a specify voice package, 
+
+# Bluetooth
+translate.cpp assumes that you use Bluetooth earphones to receive audio output. If that is not the case, then comment out line
